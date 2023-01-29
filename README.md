@@ -1,3 +1,15 @@
+<div id="header" align="center">
+
+  <img src="https://warehouse-camo.ingress.cmh1.psfhosted.org/d0853aaef517f065933f6155da5bf797a8416d5c/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f686f666673746164742f4465617250794775692f6173736574732f726561646d652f6470675f6c6f676f5f627574746f6e2e706e67" width="auto" height ="auto" />
+  <br>
+
+  <img src="http://ForTheBadge.com/images/badges/made-with-python.svg" width="auto" height ="28" />
+  <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white" />
+  <img src ="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" />
+  <img src ="https://img.shields.io/badge/windows%20terminal-4D4D4D?style=for-the-badge&logo=windows%20terminal&logoColor=white" />
+
+</div>
+
 EN
 ==
 
