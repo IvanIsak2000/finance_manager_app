@@ -97,7 +97,7 @@ Exit
 >![image](https://user-images.githubusercontent.com/79650307/215337898-a14008a2-6ba7-4819-af8a-13434afc8ff4.png)
 >
 
-GitHUb
+GitHub
 --
 **The GitHub button directs you to this repository!**
 >
