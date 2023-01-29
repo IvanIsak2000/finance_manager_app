@@ -12,8 +12,10 @@
 EN
 ==
 
+
 BASIC
 --
+Supports: Python >=3.7.
 
 The program is designed to store any expenses/incomes. Written in Python with [dearpygui 1.8.0](https://dearpygui.readthedocs.io/en/latest/index.html). The data is stored in sqlite3.
 
