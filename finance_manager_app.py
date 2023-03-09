@@ -4,12 +4,13 @@ import sys
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import dearpygui.dearpygui as dpg
 
 from app.delete_element import delete_element_in_sql
 from app.delete_all import delete_all_in_sql
 from app.read import read_data_in_sql
 from app.add import add_data_in_sql
-import dearpygui.dearpygui as dpg
+
 
 
 
