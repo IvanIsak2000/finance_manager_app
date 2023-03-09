@@ -43,6 +43,6 @@ def read_data_in_sql():  # open and read all data
 
             plt.show()
 
-    except BaseException:
+    except:
         pass
         print(f'NO DATA OR ERROR!!!  Your data: {output}')
