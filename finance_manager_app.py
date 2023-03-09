@@ -1,14 +1,16 @@
-from function_for_app.function_delete_element import delete_element_in_sql
-from function_for_app.function_delete_all import delete_all_in_sql
-from function_for_app.function_read import read_data_in_sql
-from function_for_app.function_add import add_data_in_sql
-import dearpygui.dearpygui as dpg
 import webbrowser
 import sqlite3
 import sys
 import os
-from function_for_app.install_libs import install_libs  # install all libs
-install_libs()
+import matplotlib.pyplot as plt
+import numpy as np
+
+from app.delete_element import delete_element_in_sql
+from app.delete_all import delete_all_in_sql
+from app.read import read_data_in_sql
+from app.add import add_data_in_sql
+import dearpygui.dearpygui as dpg
+
 
 
 # the database will always be created at the beginning if it does not exist
