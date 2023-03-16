@@ -21,7 +21,7 @@ The program is designed to store any expenses/incomes. Written in Python with [d
 
 IMPORTANT
 --
-The main program imports files from the function_for_app folder as libraries, so when the main program starts, it imports the function for installing the necessary libraries!
+The main program imports files from the ``app`` folder as libraries!
 
 
 FUNCTIONS
