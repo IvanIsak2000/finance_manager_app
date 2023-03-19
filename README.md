@@ -30,7 +30,6 @@ EXAMPLE
 Add
 --
 
-
 **Let's say you want to write down that you will pay $68 for the Internet.**
 To do this, open the program, click on the Add tab and enter:
 >![image](https://user-images.githubusercontent.com/79650307/215337669-4953f730-3751-4f1e-9f9f-b8d230da2217.png)
@@ -56,7 +55,7 @@ Delete all
 Delete element
 ###
 
-**Have you entered incorrect information? It's okay, just do Delete=> Delete element => Enter a name and press Delete**
+**Have you entered incorrect information? It's okay, just do Delete => Delete element => Enter a name and press Delete**
 
 >![image](https://user-images.githubusercontent.com/79650307/215337795-d98a9b93-0977-4003-bfe6-bb2c297ad8c4.png)
 >If the service with the name 'food' was in the database, it is definitely deleted, and the following is displayed on the command line:
