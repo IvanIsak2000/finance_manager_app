@@ -1,14 +1,14 @@
-def read_data_in_sql():  # open and read all data
-    import sqlite3
-    import dearpygui.dearpygui as dpg
-    import matplotlib.pyplot as plt
-    import numpy as np
+from sqlite3 import connect
+import matplotlib.pyplot as plt
+import numpy as np
 
-    output = " NO TABLE,PLEASE REBOOT PROGRAMM !"
+
+def read_data():
+    output = "NO TABLE was found, PLEASE restart PROGRAM!"
     try:
-        with sqlite3.connect('database.db') as db:
+        with connect("database.db") as db:
             cursor = db.cursor()
-            query = ''' SELECT * FROM service '''
+            query = """SELECT * FROM service"""
             cursor.execute(query)
             output = []
             for name, amount in cursor:
@@ -16,7 +16,6 @@ def read_data_in_sql():  # open and read all data
                 new_list.append(name)
                 new_list.append(str(amount))
                 output.append(new_list)
-
             result = []
             for element in output:
                 result += element
@@ -26,23 +25,16 @@ def read_data_in_sql():  # open and read all data
                 sorted(
                     dictionary.items(),
                     key=lambda item: item[1]))
-
             values = list((dictionary.values()))
             keys = list(dictionary.keys())
-
-            index = np.arange(len(keys))  # column count
-
+            index = np.arange(len(keys))
             values1 = values
             plt.bar(index, values1)
             plt.xticks(index + 0.4, keys)
-            plt.title('Statistics', fontsize=20, color='black')  # title
-
-            plt.xlabel('service name', fontsize=15, color='red')  # x-axis name
-
-            plt.ylabel('dollars', fontsize=15, color='green')  # y-axis name
-
+            plt.title("Statistics", fontsize=20, color="black")
+            plt.xlabel("service name", fontsize=15, color="red")
+            plt.ylabel("dollars", fontsize=15, color="green")
             plt.show()
-
     except:
-        pass
-        print(f'NO DATA OR ERROR!!!  Your data: {output}')
+        print(f"NO DATA OR ERROR!!!")
+
