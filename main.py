@@ -77,7 +77,7 @@ with dpg.window(label='Menu', width=500, height=550, tag='Primary Window'):
             user_service = dpg.get_value('__input_text')
             user_amount = dpg.get_value('__input_number')
             dpg.add_button(label='Save?',
-                           callback=database.add_data,
+                           callback=add,
                            tag='__save')
         with dpg.tooltip('__input_text'):
             input_help_text = """
