@@ -49,6 +49,7 @@ def delete_all():
 
 def delete_element(name_to_delete: str):
     name_to_delete = dpg.get_value('element')
+    print(name_to_delete)
     database.delete_element(name_to_delete)
 
 
@@ -101,11 +102,11 @@ An error is given if you attempt entering 0 or non-digit characters
         with dpg.menu(label='  Delete  '):
             with dpg.menu(label='Delete all'):
                 dpg.add_menu_item(label='Yes',
-                                  callback=database.delete_all,
+                                  callback=delete_all,
                                   tag='__delete')
             with dpg.menu(label='Delete element'):
                 name_to_delete = (dpg.add_input_text(tag="element"))
-                dpg.add_button(label='Delete', callback=database.delete_element)
+                dpg.add_button(label='Delete', callback=delete_element)
             with dpg.tooltip('__delete'):
                 dpg.add_text('If you press Yes - all data are delete!')
         with dpg.menu(label='  Exit  '):
