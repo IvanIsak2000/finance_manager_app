@@ -34,6 +34,7 @@ Add
 To do this, open the program, click on the Add tab and enter:
 >![image](https://user-images.githubusercontent.com/79650307/215337669-4953f730-3751-4f1e-9f9f-b8d230da2217.png)
 >In the command line there was an inscription about saving, so everything is fine
+<br/><br/>
 >![image](https://user-images.githubusercontent.com/79650307/215336481-1cf0a9e2-2cb2-47a4-8278-c5109b0559b5.png)
 
 Read
@@ -50,7 +51,9 @@ Delete all
 
 **Do you want to delete ALL data? To do this, click Delete => Delete all => Yes**
 >![image](https://user-images.githubusercontent.com/79650307/215337748-9bfd3489-8a20-4352-b5f9-d52302d8ae71.png)
+<br/><br/>
 >`NOTE: if you delete ALL data, the program will automatically close after 3 seconds!`
+<br/><br/>
 
 Delete element
 ###
@@ -58,7 +61,9 @@ Delete element
 **Have you entered incorrect information? It's okay, just do Delete => Delete element => Enter a name and press Delete**
 
 >![image](https://user-images.githubusercontent.com/79650307/215337795-d98a9b93-0977-4003-bfe6-bb2c297ad8c4.png)
+<br/><br/>
 >If the service with the name 'food' was in the database, it is definitely deleted, and the following is displayed on the command line:
+<br/><br/>
 >![image](https://user-images.githubusercontent.com/79650307/215337357-816ad8bd-1b78-4d4b-a458-ab35a97495db.png)
 
 Exit
