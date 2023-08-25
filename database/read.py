@@ -1,10 +1,9 @@
 from sqlite3 import connect
-import matplotlib.pyplot as plt
+import matplotlib as plt
 import numpy as np
 
 
 def read_data():
-    output = "NO TABLE was found, PLEASE restart PROGRAM!"
     try:
         with connect("database.db") as db:
             cursor = db.cursor()
@@ -12,9 +11,7 @@ def read_data():
             cursor.execute(query)
             output = []
             for name, amount in cursor:
-                new_list = []
-                new_list.append(name)
-                new_list.append(str(amount))
+                new_list = [name, str(amount)]
                 output.append(new_list)
             result = []
             for element in output:
@@ -35,6 +32,5 @@ def read_data():
             plt.xlabel("service name", fontsize=15, color="red")
             plt.ylabel("dollars", fontsize=15, color="green")
             plt.show()
-    except:
-        print(f"NO DATA OR ERROR!!!")
-
+    except Exception as e:
+        print(e)
