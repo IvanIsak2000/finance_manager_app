@@ -2,10 +2,8 @@
 import webbrowser
 import sqlite3
 import sys
-from time import sleep
 import dearpygui.dearpygui as dpg
 import database
-
 
 with sqlite3.connect('database.db') as db:
     cursor = db.cursor()
@@ -17,7 +15,7 @@ with sqlite3.connect('database.db') as db:
     cursor.execute(query_start)
 
 
-def add(user_service: str, user_amount: str):
+def add() -> None:
     user_service = dpg.get_value('__input_text')
     user_amount = dpg.get_value('__input_number')
     if user_service.isspace() or user_service == '':
@@ -34,28 +32,28 @@ The amount can only be a number! Wrong data not added!
         database.add_data(user_service, user_amount)
 
 
-def read():
+def read() -> None:
     database.read_data()
 
 
-def exit():
+def exit() -> None:
     sys.exit()
 
 
-def delete_all():
+def delete_all() -> None:
     database.delete_all()
-    sys.exit()
+    exit()
 
 
-def delete_element(name_to_delete: str):
+def delete_element() -> None:
     name_to_delete = dpg.get_value('element')
     database.delete_element(name_to_delete)
 
 
 def open_github():
-    github_link="https://github.com/IvanIsak2000/finance_manager_app"
+    github_link = "https://github.com/IvanIsak2000/finance_manager_app"
     webbrowser.open_new_tab(github_link)
-    sys.exit()
+    exit()
 
 
 dpg.create_context()
@@ -70,12 +68,10 @@ with dpg.window(label='Menu', width=500, height=550, tag='Primary Window'):
         print('Failed to load background.png')
     with dpg.menu_bar():
         with dpg.menu(label='Add  '):
-            dpg.add_text('Servise name (only english):')
+            dpg.add_text('Service name (only english):')
             user_service = (dpg.add_input_text(tag='__input_text'))
             dpg.add_text('Service amount (only english):')
             user_amount = (dpg.add_input_text(tag='__input_number'))
-            user_service = dpg.get_value('__input_text')
-            user_amount = dpg.get_value('__input_number')
             dpg.add_button(label='Save?',
                            callback=add,
                            tag='__save')
@@ -113,9 +109,7 @@ An error is given if you attempt entering 0 or non-digit characters
         with dpg.menu(label='  GitHub  '):
             dpg.add_menu_item(label='Open', callback=open_github)
 
-
 dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.set_primary_window('Primary Window', True)
 dpg.start_dearpygui()
-
