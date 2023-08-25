@@ -8,8 +8,8 @@ def delete_element(name_to_delete: str):
         cursor = db.cursor()
         query = """DELETE FROM service WHERE name = ?;"""
         cursor.execute(query, (name_to_delete,))
-    delete_success_message = "The element " + name_to_delete
-    delete_success_message += " was deleted if it was in the database!"
+    delete_success_message = (f'The element {name_to_delete} was'
+                              'deleted if it was in the database!')
     print(delete_success_message)
 
 
@@ -22,4 +22,3 @@ def delete_all():
         print("The program will be terminated")
     sleep(3)
     sys.exit()
-
