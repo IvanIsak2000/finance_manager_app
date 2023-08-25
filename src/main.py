@@ -28,8 +28,11 @@ def add_in_db() -> None:
     user_amount = dpg.get_value('user_service_amount')
 
     if service_and_amount_is_valid(user_service, user_amount):
-        database.add_data(user_service, user_amount)
-        logger.info('Data was added')
+        try:
+            database.add_data(user_service, user_amount)
+            logger.info('Data was added')
+        except Exception as e:
+            log(e)
     else:
         logger.info(f'Data don`t added : `{user_service}` `{user_amount}` ')
         return print('''
