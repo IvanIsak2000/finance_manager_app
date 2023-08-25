@@ -1,24 +1,26 @@
 #!/usr/bin/env python3
+
 import webbrowser
-import sqlite3
 import sys
 import dearpygui.dearpygui as dpg
 import database
 import logging
+from sqlalchemy import create_engine, Column, String, REAL
+from sqlalchemy.ext.declarative import declarative_base
 
 
 logging.basicConfig(filename='finance_manager_app.log', level=logging.INFO,
-                    format='%(asctime)s %(levelname)s %(name)s %(message)s')
+                    format='%(asctime)s %(levelname)s %(name)s %(message)s'
+                    )
 logger = logging.getLogger(__name__)
 
-with sqlite3.connect('database.db') as db:
-    cursor = db.cursor()
-    query_start = """
-    CREATE TABLE IF NOT EXISTS service(
-        name TEXT,
-        amount REAL);
-    """
-    cursor.execute(query_start)
+
+def log(error: str) -> None:
+    logger.error(error)
+    return print(error)
+
+
+
 
 
 def add_in_db() -> None:
