@@ -20,9 +20,6 @@ def log(error: str) -> None:
     return print(error)
 
 
-
-
-
 def add_in_db() -> None:
     user_service = dpg.get_value('user_service_name')
     user_amount = dpg.get_value('user_service_amount')
