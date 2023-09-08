@@ -2,7 +2,7 @@
 
   ![logo](https://github.com/IvanIsak2000/finance_manager_app/assets/79650307/e5ad8414-58c4-4b63-ba28-767522f4736d)
 
-  <img src="http://ForTheBadge.com/images/badges/made-with-python.svg" width="auto" height ="28" />
+  <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" width="auto" height ="28" />
   <img src ="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" />
 </div>
 
