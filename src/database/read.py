@@ -6,8 +6,7 @@ session = Session()
 
 
 def read_data():
+    ## Создать отображение графика расходов.
 
     for i in session.query(Table).all():
-        print(i)
-
-read_data()
+        print(i.name, i.amount)
