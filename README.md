@@ -1,7 +1,6 @@
 <div id="header" align="center">
 
   ![logo](https://github.com/IvanIsak2000/finance_manager_app/assets/79650307/e5ad8414-58c4-4b63-ba28-767522f4736d)
-
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" width="auto" height ="28" />
   <img src ="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" />
 </div>
@@ -9,7 +8,7 @@
 
 ## BASIC
 
-Supports: Python >=3.7.
+Supports: Python >= 3.7
 
 The program is designed to store any expenses/incomes. Written in Python with [dearpygui 1.8.0](https://dearpygui.readthedocs.io/en/latest/index.html). The data is stored in sqlite3.
 
