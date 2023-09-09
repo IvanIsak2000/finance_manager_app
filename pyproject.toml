@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "finance-manager-app"
+version = "0.1.0"
+description = ""
+authors = ["IvanIsak2000 <vingving648@gmail.com>"]
+readme = "README.md"
+packages = [{include = "finance_manager_app"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+matplotlib = "^3.7.2"
+dearpygui = "1.8"
+sqlalchemy = "^2.0.20"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
