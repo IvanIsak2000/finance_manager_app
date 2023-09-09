@@ -4,16 +4,7 @@ import webbrowser
 import sys
 import dearpygui.dearpygui as dpg
 import database
-import logging
-from sqlalchemy import create_engine, Column, String, REAL
-from sqlalchemy.ext.declarative import declarative_base
-
-
-logging.basicConfig(filename='finance_manager_app.log', level=logging.INFO,
-                    format='%(asctime)s %(levelname)s %(name)s %(message)s'
-                    )
-logger = logging.getLogger(__name__)
-
+from logger import *
 
 def log(error: str) -> None:
     logger.error(error)
@@ -24,7 +15,7 @@ def add_in_db() -> None:
     user_service = dpg.get_value('user_service_name')
     user_amount = dpg.get_value('user_service_amount')
 
-    if service_and_amount_is_valid(user_service, user_amount):
+    if service_and_amount_are_valid(user_service, user_amount):
         try:
             database.add_data(user_service, user_amount)
             logger.info('Data was added')
@@ -38,7 +29,7 @@ service: text greater than 0 characters
 amount: number''')
 
 
-def service_and_amount_is_valid(user_service: str, user_amount: str) -> bool:
+def service_and_amount_are_valid(user_service: str, user_amount: str) -> bool:
     service_is_valid = False
     amount_is_valid = False
 
@@ -48,7 +39,7 @@ def service_and_amount_is_valid(user_service: str, user_amount: str) -> bool:
 
     if user_amount.isdigit():
         amount_is_valid = True
-    return service_is_valid is True and amount_is_valid is True
+    return service_is_valid and amount_is_valid
 
 
 def read() -> None:
