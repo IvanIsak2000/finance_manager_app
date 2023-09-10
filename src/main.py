@@ -6,10 +6,6 @@ import dearpygui.dearpygui as dpg
 import database
 from logger import *
 
-def log(error: str) -> None:
-    logger.error(error)
-    return print(error)
-
 
 def add_in_db() -> None:
     user_service = dpg.get_value('user_service_name')
@@ -17,16 +13,18 @@ def add_in_db() -> None:
 
     if service_and_amount_are_valid(user_service, user_amount):
         try:
-            database.add_data(user_service, user_amount)
-            logger.info('Data was added')
+            result = database.add_data(user_service, user_amount)
+            dpg.set_value('status', result)
         except Exception as e:
-            log(e)
+            dpg.set_value('status', e)
+            logger.exception(e)
     else:
-        logger.info(f'Data don`t added : `{user_service}` `{user_amount}` ')
-        return print('''
-ERROR! Verifier that the entered data matches the condition:
+        logger.info(f'Data don`t added : <{user_service}> <{user_amount}>')
+        not_valid_text = '''
+Error! Verifier that the entered data matches the condition:
 service: text greater than 0 characters
-amount: number''')
+amount: number'''
+        dpg.set_value('status', not_valid_text)
 
 
 def service_and_amount_are_valid(user_service: str, user_amount: str) -> bool:
@@ -73,9 +71,12 @@ with dpg.window(label='Menu', width=500, height=550, tag='Primary Window'):
         try:
             texture_id = dpg.add_static_texture(100, 100, data)
         except NameError:
-            logger.info('no background')
+            logger.exception('no background')
             print('Background don`t found!')
     dpg.add_image(texture_id)
+
+    dpg.add_spacer(height=20)
+    dpg.add_text(' ', tag='status')
 
     with dpg.menu_bar():
         with dpg.menu(label='Add  '):
@@ -133,5 +134,6 @@ dpg.set_primary_window('Primary Window', True)
 try:
     dpg.start_dearpygui()
 except KeyboardInterrupt:
+    logger.info('Program was closed')
     print('Goodbye!')
     exit()
