@@ -3,7 +3,6 @@
         :width: 100%
 
 
-      
 .. contents:: :depth: 2
 
 
@@ -17,7 +16,6 @@ The program is designed to store any expenses/incomes. Written in Python with `d
 
 
 
-
 FUNCTIONS
 -----------
                                                                                            
@@ -27,6 +25,7 @@ FUNCTIONS
 4. Deleting data by name
 5. Program close function
 6. Move to GitHub
+
 
 
 USE
@@ -56,6 +55,7 @@ Do you want to see the data? Let's press the See button. The program will displa
 .. image:: https://user-images.githubusercontent.com/79650307/215337709-6b89f342-5b55-486e-8891-3a8587d52449.png
 
 
+
 Delete all elements
 ~~~~~~~~~~~~~~~~~~~~~
   
@@ -68,7 +68,7 @@ Do you want to delete ALL data? To do this, click Delete => Delete all => Yes
 
 
 
-Delete elements
+Delete element
 ~~~~~~~~~~~~~~~~~~
 
 Have you entered incorrect information? It's okay, just do Delete => Delete element => Enter a name and press Delete
