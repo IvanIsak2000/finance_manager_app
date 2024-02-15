@@ -1,5 +1,5 @@
 
-.. image::
+.. image:: https://github.com/IvanIsak2000/finance_manager_app/blob/readme_update/logo.png
         :width: 100%
 
 
