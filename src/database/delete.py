@@ -19,7 +19,7 @@ def delete_element(name_to_delete: str) -> str:
 def delete_all():
     with Session(engine) as session:
         try:
-            stmt = delete( Waste)
+            stmt = delete(Waste)
             session.execute(stmt)
             session.commit()
             logger.info(EVERYTHING_HAS_BEEN_DELETED)

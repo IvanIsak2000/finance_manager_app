@@ -12,12 +12,10 @@ def add_data(user_service: str, user_amount: str) -> str:
             session.commit()
             logger.info(f'Added <{user_service}> <{user_amount}>')
             return DATA_ADD
-        
         except exc.IntegrityError:
             session.rollback()
             logger.error('Exist data')
             return EXIST_DATA
-
         except Exception as e:
             session.rollback()
             logger.exception(e)
