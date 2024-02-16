@@ -1,25 +1,24 @@
-from database.class_template import *
+from database.model import *
 from sqlalchemy import exc
 from logger import *
-
-
-Session = sessionmaker(bind=engine)
-session = Session()
+from constants import *
 
 
 def add_data(user_service: str, user_amount: str) -> str:
-    try:
-        data = Table(user_service, user_amount)
-        session.add(data)
-        session.commit()
-        logger.info(f'Added <{user_service}> <{user_amount}>')
-        return "Successful! Data updated."
-    except exc.IntegrityError:
-        session.rollback()
-        logger.error('Exist data')
-        return 'Error! This data already exists.'
+    with Session(engine) as session:
+        try:
+            data = Waste(name=user_service, amount=user_amount)
+            session.add(data)
+            session.commit()
+            logger.info(f'Added <{user_service}> <{user_amount}>')
+            return DATA_ADD
+        
+        except exc.IntegrityError:
+            session.rollback()
+            logger.error('Exist data')
+            return EXIST_DATA
 
-    except Exception as e:
-        session.rollback()
-        logger.exception(e)
-        return e
+        except Exception as e:
+            session.rollback()
+            logger.exception(e)
+            return e
