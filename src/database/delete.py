@@ -1,22 +1,35 @@
-from sqlite3 import connect
 from logger import *
+from database.model import *
+from constants import * 
 
-def delete_element(name_to_delete: str) -> None:
-    with connect('database.db') as db:
-        cursor = db.cursor()
-        query = """DELETE FROM service WHERE name = ?;"""
-        cursor.execute(query, (name_to_delete,))
-    delete_success_message = (f'The element {name_to_delete} was'
-                              'deleted if it was in the database!')
-    logger.info(f'Element {name_to_delete} was removed if it exist')
-    return print(delete_success_message)
+def delete_element(name_to_delete: str) -> str:
+    with Session(engine) as session:
+        try:
+            stmt = delete(Waste).where(Waste.name==name_to_delete)
+            session.add(stmt)
+            session.commit()
+            logger.info(THE_ITEM_HAS_BEEN_DELETED)
+            return THE_ITEM_HAS_BEEN_DELETED
+        except Exception as e:
+            logger.error(e)
+            return 'Most likely there is no such name'
 
 
 def delete_all():
-    with connect('database.db') as db:
-        cursor = db.cursor()
-        query = """DROP table service;"""
-        cursor.execute(query)
-        logger.info('Deleted all data')
-        print("All data will be deleted!")
-        return print("Please reboot program!")
+    with Session(engine) as session:
+        try:
+            stmt = delete( Waste)
+            session.execute(stmt)
+            session.commit()
+            logger.info(EVERYTHING_HAS_BEEN_DELETED)
+            return EVERYTHING_HAS_BEEN_DELETED
+        
+        except sqlalchemy.orm.exc.UnmappedInstanceError:
+            logger.error('Name not found')
+            print(f'Delete all:',type(e).__name__)
+            return'Name not found'
+        
+        except Exception as e:
+            logger.error(e)
+            return e 
+                
